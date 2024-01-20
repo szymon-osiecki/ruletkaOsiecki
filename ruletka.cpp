@@ -2,19 +2,28 @@
 #include <iostream>
 
 using namespace std;
-// Jakub Olchowy, Szymon Osiecki, Wladyslaw Farat - projekt nr. 5
+// Jakub Olchowy, Szymon Osiecki, Władysław Farat - projekt nr. 5
+//Struktura odpowiadajaca za podstawowe funkcje gry, trzymanie danych o grze
 struct Gra {
+	//dane gry
+	const int zycia[3] = { 1, 2 ,3 };
+	const double ilosc_naboi[3] = { 4, 6 ,8 };
+	const double prawdziwe[3] = { 50, 66, 75 };
+	//dane obecnej instancji gry
 	int tura = 1;
 	int nr_naboju = 1;
 	int* naboje = nullptr;
-  const int zycia[3] = { 1, 2 ,3 };
-	const double ilosc_naboi[3] = { 4, 6 ,8 };
-	const double prawdziwe[3] = { 50, 66, 75 };
+	//funkcja odpowiadajaca za losowe zaladowanie broni
 	void zaladuj_bron(double ile, double szansa) {
+		//zainicjalizowanie tabeli
+		if (naboje != nullptr) rozladuj_bron();
 		naboje = new int[ile];
+		//obliczenie ile powinno byc naboi prawdziwych a ile falszywych
 		double prawdziwe = ile * (szansa / 100);
 		int falszywe = ile - prawdziwe;
+		//inicjalizacja randa
 		srand((unsigned)time(0));
+		//wypelnienie tabeli wartosciami
 		for (int i = 0; i < ile; i++) {
 			int rzut = rand() % 100;
 			if ((rzut < szansa && prawdziwe > 0) || falszywe == 0) {
@@ -29,9 +38,10 @@ struct Gra {
 	}
 	void rozladuj_bron() {
 		delete[] naboje;
+		naboje = nullptr;
 	}
 };
-
+//struktura odpowiadajaca za gracza
 struct Gracz {
 	int zycia;
 	int przedmioty;
@@ -43,4 +53,5 @@ int main() {
 		if (ruletka.naboje[i] == 1) cout << "prawdziwy" << endl;
 		else cout << "falszywy" << endl;
 	}
+	ruletka.rozladuj_bron();
 }
