@@ -1,4 +1,4 @@
-##Jakub Olchowy, Szymon Osiecki, Władysław Farat - projekt nr. 5
+## Jakub Olchowy, Szymon Osiecki, Władysław Farat - projekt nr. 5
 ## 5. Rosyjska ruletka
 Stwórz grę w rozbudowaną rosyjską ruletkę z komputerem. W prostym menu istnieje
 możliwość rozpoczęcia gry lub zamknięcia programu. Gra składa się z trzech tur i każdą z
