@@ -47,7 +47,6 @@ struct Gracz {
 	int przedmioty;
 };
 int main() {
-<<<<<<< HEAD
     int wybor;
     cout << "Wprowadź '1' aby rozpocząć grę";
     cout << "Wprowadź '2' aby zakończyć grę";
@@ -72,7 +71,6 @@ int main() {
             cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignorowanie niepoprawnych danych
         }
     }
-=======
 	Gra ruletka;
 	ruletka.zaladuj_bron(ruletka.ilosc_naboi[1], ruletka.prawdziwe[1]);
 	for (int i = 0; i < ruletka.ilosc_naboi[1]; i++) {
@@ -80,5 +78,4 @@ int main() {
 		else cout << "falszywy" << endl;
 	}
 	ruletka.rozladuj_bron();
->>>>>>> upstream/main
 }
